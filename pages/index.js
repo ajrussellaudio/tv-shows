@@ -1,52 +1,38 @@
 import Link from "next/link";
+import styled from "styled-components";
+
 import Layout from "../components/Layout";
-import Axios from "axios";
 import { ApiRequest } from "../services/ApiRequest";
 
+const Title = styled.h1`
+  color: red;
+`;
+
+const LinkText = styled("a")`
+  color: chartreuse;
+  text-decoration: none;
+
+  :hover {
+    color: hotpink;
+  }
+`;
+
 const ShowLink = ({ id, name }) => (
-  <li key={id}>
+  <li>
     <Link as={`/p/${id}`} href={`/post?id=${id}`}>
-      <a>{name}</a>
+      <LinkText>{name}</LinkText>
     </Link>
-    <style jsx>{`
-      li {
-        list-style: none;
-        margin: 5px 0;
-      }
-
-      a {
-        font-family: "Arial";
-      }
-
-      a {
-        text-decoration: none;
-        color: blue;
-      }
-
-      a:hover {
-        opacity: 0.6;
-      }
-    `}</style>
   </li>
 );
 
 const Index = ({ shows }) => (
   <Layout>
-    <h1>Batman TV Shows</h1>
+    <Title>Batman TV Shows</Title>
     <ul>
       {shows.map(show => (
         <ShowLink key={show.id} {...show} />
       ))}
     </ul>
-    <style jsx>{`
-      h1 {
-        font-family: "Arial";
-      }
-
-      ul {
-        padding: 0;
-      }
-    `}</style>
   </Layout>
 );
 
