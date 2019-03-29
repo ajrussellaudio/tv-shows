@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Layout from "../components/Layout";
 import { ApiRequest } from "../services/ApiRequest";
+import { phoneAppAction } from "../services/PhoneApp";
 
 const Title = styled.h1`
   color: red;
@@ -33,6 +34,7 @@ const Index = ({ shows }) => (
         <ShowLink key={show.id} {...show} />
       ))}
     </ul>
+    <button onClick={() => phoneAppAction("Hello", "World")}>Click me</button>
   </Layout>
 );
 
