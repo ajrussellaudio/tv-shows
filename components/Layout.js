@@ -1,16 +1,16 @@
 import Header from "./Header";
+import styled from "styled-components";
 
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: "1px solid #ddd"
-};
+const PaddedLayout = styled.div`
+  padding: 10px;
+  margin-top: 20px;
+`;
 
 const Layout = ({ children }) => (
-  <div style={layoutStyle}>
+  <React.Fragment>
     <Header />
-    {children}
-  </div>
+    <PaddedLayout>{children}</PaddedLayout>
+  </React.Fragment>
 );
 
 export default Layout;

@@ -1,18 +1,10 @@
 import Link from "next/link";
 import styled, { ThemeProvider } from "styled-components";
+import { theme } from "../styles/theme";
 
 import Layout from "../components/Layout";
 import { ApiRequest } from "../services/ApiRequest";
 import { phoneAppAction } from "../services/PhoneApp";
-
-const theme = {
-  colours: {
-    primary: "#333333",
-    secondary: "#ffffff",
-    link: "#333388",
-    linkActive: "#3333dd"
-  }
-};
 
 const Title = styled.h1`
   color: ${({ theme }) => theme.colours.primary};
@@ -28,6 +20,15 @@ const LinkText = styled("a")`
   }
 `;
 
+const Button = styled.div`
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  background-color: ${({ theme }) => theme.colours.primary};
+  color: ${({ theme }) => theme.colours.secondary};
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+`;
+
 const ShowLink = ({ id, name }) => (
   <li>
     <Link as={`/p/${id}`} href={`/post?id=${id}`}>
@@ -39,13 +40,13 @@ const ShowLink = ({ id, name }) => (
 const Index = ({ shows }) => (
   <ThemeProvider theme={theme}>
     <Layout>
-      <Title>Batman TV Shows</Title>
+      <Title>List of TV Shows</Title>
       <ul>
         {shows.map(show => (
           <ShowLink key={show.id} {...show} />
         ))}
       </ul>
-      <button onClick={() => phoneAppAction("Hello", "World")}>Click me</button>
+      <Button onClick={() => phoneAppAction("Hello", "World")}>Click me</Button>
     </Layout>
   </ThemeProvider>
 );

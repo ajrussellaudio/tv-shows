@@ -1,11 +1,16 @@
 import Layout from "../components/Layout";
 import { ApiRequest } from "../services/ApiRequest";
+import styled from "styled-components";
+
+const Image = styled.img`
+  width: 100%;
+`;
 
 const Show = ({ name, summary, image }) => (
   <Layout>
     <h1>{name}</h1>
     <p>{summary.replace(/<[/]?[pb]>/g, "")}</p>
-    <img src={image.medium} width="200" />
+    <Image src={image.medium} />
   </Layout>
 );
 

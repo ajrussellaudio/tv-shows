@@ -21,8 +21,6 @@ app
 
     server.use("/api", apiStub);
 
-    server.use(express.static(path.resolve(__dirname, "assets/fonts")));
-
     server.get("*", (req, res) => handle(req, res));
 
     server.listen(3000, err => {
