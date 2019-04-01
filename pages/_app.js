@@ -1,5 +1,6 @@
 import App, { Container } from "next/app";
 import Head from "next/head";
+import { GlobalStyles } from "../styles/global";
 // import React from "react";
 
 export default class MyApp extends App {
@@ -17,9 +18,10 @@ export default class MyApp extends App {
 
     return (
       <Container>
+        <GlobalStyles />
         <Head>
           <title>Alan's TV Shows</title>
-          <meta charset="UTF-8" />
+          <meta charSet="UTF-8" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"

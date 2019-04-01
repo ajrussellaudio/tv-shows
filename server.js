@@ -1,5 +1,6 @@
 const express = require("express");
 const next = require("next");
+const path = require("path");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -19,6 +20,8 @@ app
     });
 
     server.use("/api", apiStub);
+
+    server.use(express.static(path.resolve(__dirname, "assets/fonts")));
 
     server.get("*", (req, res) => handle(req, res));
 
